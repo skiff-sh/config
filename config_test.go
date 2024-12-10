@@ -32,7 +32,6 @@ func (c *ConfigTestSuite) TestInit() {
 	expected.Log.Outputs = "stderr"
 
 	c.T().Setenv("SKIFF_LOG_OUTPUTS", "stderr")
-
 	k := InitKoanf("skiff", &fakeConfig{})
 	actual := new(fakeConfig)
 	// -- When
