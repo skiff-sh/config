@@ -35,7 +35,6 @@ func (c *ConfigTestSuite) TestInit() {
 
 	k := InitKoanf("skiff", &fakeConfig{})
 	actual := new(fakeConfig)
-
 	// -- When
 	//
 	err := k.Unmarshal("", actual)
