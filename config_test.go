@@ -34,7 +34,6 @@ func (c *ConfigTestSuite) TestInit() {
 	c.T().Setenv("SKIFF_LOG_OUTPUTS", "stderr")
 	k := InitKoanf("skiff", &fakeConfig{})
 	actual := new(fakeConfig)
-
 	// -- When
 	//
 	err := k.Unmarshal("", actual)
