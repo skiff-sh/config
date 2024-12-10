@@ -27,6 +27,7 @@ func ParseProto(str string) Proto {
 	case "k8spf":
 		return ProtoK8SPF
 	}
+
 	return ProtoUnknown
 }
 
