@@ -1,9 +1,10 @@
 package addrnet
 
 import (
-	"github.com/stretchr/testify/suite"
 	"net"
 	"testing"
+
+	"github.com/stretchr/testify/suite"
 )
 
 type AddrTestSuite struct {

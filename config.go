@@ -2,12 +2,13 @@ package config
 
 import (
 	"fmt"
-	"github.com/skiff-sh/appconfig/addrnet"
 	"io"
 	"log/slog"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/skiff-sh/appconfig/addrnet"
 
 	"github.com/knadh/koanf/parsers/json"
 	"github.com/knadh/koanf/parsers/yaml"
@@ -90,7 +91,7 @@ func NewLogger(log Log) (*slog.Logger, error) {
 		case "stderr":
 			w = append(w, os.Stderr)
 		default:
-			f, err := os.OpenFile(v, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
+			f, err := os.OpenFile(v, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0o600)
 			if err != nil {
 				return nil, err
 			}
