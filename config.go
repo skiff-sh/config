@@ -104,6 +104,8 @@ func NewLogger(log Log) (*slog.Logger, error) {
 		Level:     ParseLevel(log.Level),
 	}))
 
+	slog.SetDefault(logger)
+
 	return logger, nil
 }
 
