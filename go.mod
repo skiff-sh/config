@@ -1,4 +1,4 @@
-module github.com/skiff-sh/appconfig
+module github.com/skiff-sh/config
 
 go 1.23.3
 
