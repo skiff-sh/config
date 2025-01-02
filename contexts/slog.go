@@ -13,7 +13,7 @@ func WithLogger(ctx context.Context, log *slog.Logger) context.Context {
 
 func GetLogger(ctx context.Context) *slog.Logger {
 	v, _ := ctx.Value(slogKey{}).(*slog.Logger)
-	if v != nil {
+	if v == nil {
 		return slog.Default()
 	}
 	return v
