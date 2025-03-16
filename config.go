@@ -102,6 +102,16 @@ func NewLogger(log Log) (*slog.Logger, error) {
 	logger := slog.New(slog.NewJSONHandler(io.MultiWriter(w...), &slog.HandlerOptions{
 		AddSource: true,
 		Level:     ParseLevel(log.Level),
+		ReplaceAttr: func(groups []string, a slog.Attr) slog.Attr {
+			if a.Key == slog.SourceKey {
+				source, _ := a.Value.Any().(*slog.Source)
+				if source != nil {
+					source.Function = ""
+					source.File = filepath.Base(source.File)
+				}
+			}
+			return a
+		},
 	}))
 
 	slog.SetDefault(logger)
